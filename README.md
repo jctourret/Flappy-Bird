@@ -1,2 +1,2 @@
-# Flappy-Bierd
+# Flappy-Bird
 Juego °3 - Raylib
