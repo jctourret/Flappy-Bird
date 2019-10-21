@@ -21,27 +21,28 @@
   <ItemGroup>
     <ClCompile Include="..\src\game_objets\enemies.cpp" />
     <ClCompile Include="..\src\game_objets\player.cpp" />
-    <ClCompile Include="..\src\game_screens\game.cpp" />
-    <ClCompile Include="..\src\game_screens\menu.cpp" />
-    <ClCompile Include="..\src\game_screens\win_or_lose.cpp" />
-    <ClCompile Include="..\src\game_structure\game_structure.cpp" />
-    <ClCompile Include="..\src\inputs\input.cpp" />
+    <ClCompile Include="..\src\game_structure\credits.cpp" />
+    <ClCompile Include="..\src\game_structure\flow_of_game.cpp" />
+    <ClCompile Include="..\src\game_structure\game_screen.cpp" />
+    <ClCompile Include="..\src\game_structure\initialice.cpp" />
+    <ClCompile Include="..\src\game_structure\menu.cpp" />
     <ClCompile Include="..\src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\game_objets\enemies.h" />
     <ClInclude Include="..\src\game_objets\player.h" />
-    <ClInclude Include="..\src\game_screens\game.h" />
-    <ClInclude Include="..\src\game_screens\menu.h" />
-    <ClInclude Include="..\src\game_screens\win_or_lose.h" />
-    <ClInclude Include="..\src\game_structure\game_structure.h" />
-    <ClInclude Include="..\src\inputs\input.h" />
+    <ClInclude Include="..\src\game_structure\credits.h" />
+    <ClInclude Include="..\src\game_structure\flow_of_game.h" />
+    <ClInclude Include="..\src\game_structure\game_screen.h" />
+    <ClInclude Include="..\src\game_structure\initialice.h" />
+    <ClInclude Include="..\src\game_structure\menu.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{5515A74F-F917-457E-8B01-97433ACE4029}</ProjectGuid>
     <RootNamespace>falppybird</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <ProjectName>flappy bird</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -104,6 +105,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)lib\raylib-2.5.0-Win32-msvc15\include;$(SolutionDir)src\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <TreatWarningAsError>true</TreatWarningAsError>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)lib\raylib-2.5.0-Win32-msvc15\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>

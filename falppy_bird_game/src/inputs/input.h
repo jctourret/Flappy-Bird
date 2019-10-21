@@ -1,11 +1,9 @@
 #ifndef INPUT_H
 #define INPUT_H
 
-
-namespace Tomas_Aquistapace__Flappy_Bird
+namespace Flappy_Bird
 {
-
+	void Input();
 }
-
 
 #endif //INPUT_H
