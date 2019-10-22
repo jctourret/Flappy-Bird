@@ -1,7 +1,8 @@
 #include "player.h"
 
-#include "game_structure/game_screen.h"
+#include "enemies.h"
 #include "game_structure/menu.h"
+#include "game_structure/game_screen.h"
 
 namespace Flappy_Bird
 {
@@ -39,12 +40,17 @@ namespace Flappy_Bird
 		
 		if (IsKeyPressed(KEY_ESCAPE) == true)
 		{
-			player.exitGame = true;
+			scenes = menu;
 		}
 	}
 
 	void LoseOrWin()
 	{
+		if (CheckCollisionCircleRec(player.position, player.radius, pipes.objet) == true)
+		{
+			scenes = credits;
+		}
+
 		if ((player.position.y + player.radius >= GetScreenHeight()) || 
 			(player.position.y - player.radius <= 0))
 		{
@@ -52,8 +58,13 @@ namespace Flappy_Bird
 		}
 	}
 
+	void GainPoints()
+	{
+		// terminar
+	}
+
 	void DrawUI()
 	{
-		DrawText(FormatText("~POINTS~ %i", player.points), screenWidth / 2 + screenWidth / 3, screenHeight - pixelsAxis, fontUI, WHITE);
+		DrawText(FormatText("~POINTS~ %i", player.points), pixelsAxis, screenHeight - pixelsAxis, fontUI, WHITE);
 	}
 }

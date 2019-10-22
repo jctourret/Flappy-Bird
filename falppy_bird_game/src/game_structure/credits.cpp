@@ -19,7 +19,7 @@ namespace Flappy_Bird
 
 		if (IsKeyPressed(KEY_ESCAPE) == true)
 		{
-			player.exitGame = true;
+			scenes = exit;
 		}
 	}
 

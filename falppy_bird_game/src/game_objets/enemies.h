@@ -1,9 +1,20 @@
-#ifndef PLAYER_H
-#define PLAYER_H
+#ifndef ENEMIES_H
+#define ENEMIES_H
 
-namespace Tomas_Aquistapace__Flappy_Bird
+#include "raylib.h"
+
+namespace Flappy_Bird
 {
+	struct PIPES {
+		Rectangle objet;
+	};
+
+	extern PIPES pipes;
+	extern float SPEED_ENEMI;
+
+	void InitialiceEnemies();
+	void MovementEnemi();
 
 }
 
-#endif // !PLAYER_H
+#endif // !ENEMIES_H

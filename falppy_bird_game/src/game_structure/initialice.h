@@ -4,7 +4,7 @@
 namespace Flappy_Bird
 {
 	void InitialiceAll();
-
+	void ResetValues();
 }
 
 #endif //INITIALICE_H

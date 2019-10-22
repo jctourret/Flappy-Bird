@@ -3,6 +3,7 @@
 #include "raylib.h"
 
 #include "game_objets/player.h"
+#include "game_objets/enemies.h"
 
 namespace Flappy_Bird
 {
@@ -18,9 +19,9 @@ namespace Flappy_Bird
 		ClearBackground(BLACK);
 
 		DrawCircle(static_cast<int>(player.position.x), static_cast<int>(player.position.y) , player.radius, GREEN);
-		
 		DrawUI();
 
+		DrawRectangleRec(pipes.objet, RED);
 
 		EndDrawing();
 	}

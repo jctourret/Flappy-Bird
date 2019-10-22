@@ -7,6 +7,7 @@
 #include "initialice.h"
 #include "game_screen.h"
 #include "game_objets/player.h"
+#include "game_objets/enemies.h"
 
 namespace Flappy_Bird
 {
@@ -14,7 +15,7 @@ namespace Flappy_Bird
 	{
 		InitialiceAll();
 
-		while (!WindowShouldClose() || player.exitGame == false)
+		while (!WindowShouldClose() && player.exitGame != true)
 		{
 			switch (scenes)
 			{
@@ -24,14 +25,22 @@ namespace Flappy_Bird
 
 				break;
 			case game:
+
+				// tiene que tener una pausa
+
 				Input();
+
+				MovementEnemi();
+
 				LoseOrWin();
+
 				DrawGame();
 
 				break;
 			case credits:
 
 				InputCredits();
+				ResetValues();
 				DrawCredits();
 				
 				break;

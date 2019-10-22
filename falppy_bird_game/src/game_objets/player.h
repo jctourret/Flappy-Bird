@@ -1,5 +1,5 @@
-#ifndef ENEMIES_H
-#define ENEMIES_H
+#ifndef PLAYER_H
+#define PLAYER_H
 
 #include "raylib.h"
 
@@ -29,5 +29,5 @@ namespace Flappy_Bird
 
 }
 
-#endif // ENEMIES_H
+#endif // PLAYER_H
 
