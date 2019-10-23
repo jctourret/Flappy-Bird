@@ -11,6 +11,7 @@ namespace Flappy_Bird
 	int screenHeight = 600;
 
 	static short fontTitle = 40;
+	static short fontSubTittle = 30;
 	static short font = 20;
 
 	void DrawGame()
@@ -18,10 +19,15 @@ namespace Flappy_Bird
 		BeginDrawing();
 		ClearBackground(BLACK);
 
-		DrawCircle(static_cast<int>(player.position.x), static_cast<int>(player.position.y) , player.radius, GREEN);
+		DrawCircle(static_cast<int>(player.position.x), static_cast<int>(player.position.y), player.radius, GREEN);
 		DrawUI();
 
 		DrawRectangleRec(pipes.objet, RED);
+
+		if (pause == true)
+		{
+			DrawText("PAUSE", GetScreenWidth() / 2 - fontSubTittle, GetScreenHeight() / 2, fontSubTittle, WHITE);
+		}
 
 		EndDrawing();
 	}

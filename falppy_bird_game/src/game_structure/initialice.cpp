@@ -26,6 +26,5 @@ namespace Flappy_Bird
 	{
 		InitialicePlayer();
 		InitialiceEnemies();
-		InitialiceMenu();
 	}
 }

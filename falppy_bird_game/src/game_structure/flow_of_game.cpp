@@ -11,7 +11,7 @@
 
 namespace Flappy_Bird
 {
-	void FlowOfGame() 
+	void FlowOfGame()
 	{
 		InitialiceAll();
 
@@ -20,19 +20,20 @@ namespace Flappy_Bird
 			switch (scenes)
 			{
 			case menu:
+
 				InputMenu();
 				DrawMenu();
 
 				break;
 			case game:
 
-				// tiene que tener una pausa
-
 				Input();
-
-				MovementEnemi();
-
-				LoseOrWin();
+				if (pause == false)
+				{
+					MovementEnemi();
+					EarnPoint();
+					LoseOrWin();
+				}
 
 				DrawGame();
 
@@ -40,11 +41,11 @@ namespace Flappy_Bird
 			case credits:
 
 				InputCredits();
-				ResetValues();
 				DrawCredits();
-				
+
 				break;
 			case exit:
+				
 				player.exitGame = true;
 
 				break;

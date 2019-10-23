@@ -8,7 +8,6 @@ namespace Flappy_Bird
 	enum WIN_OR_LOSE {
 		win, lose, inGame
 	};
-
 	struct PLAYER {
 		Vector2 position;
 		float radius;
@@ -18,6 +17,7 @@ namespace Flappy_Bird
 	};
 
 	extern PLAYER player;
+	extern bool pause;
 
 	extern short fontUI;
 	extern short pixelsAxis;
@@ -25,6 +25,7 @@ namespace Flappy_Bird
 	void InitialicePlayer();
 	void Input();
 	void LoseOrWin();
+	void EarnPoint();
 	void DrawUI();
 
 }

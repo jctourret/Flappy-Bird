@@ -4,6 +4,7 @@
 
 #include "menu.h"
 #include "game_objets/player.h"
+#include "game_structure/initialice.h"
 
 namespace Flappy_Bird
 {
@@ -14,6 +15,7 @@ namespace Flappy_Bird
 	{
 		if (IsKeyPressed(KEY_ENTER) == true)
 		{
+			ResetValues();
 			scenes = menu;
 		}
 
