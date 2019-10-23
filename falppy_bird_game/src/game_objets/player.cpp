@@ -58,7 +58,7 @@ namespace Flappy_Bird
 
 	void LoseOrWin()
 	{
-		if (CheckCollisionCircleRec(player.position, player.radius, pipes.objet) == true)
+		if (CheckCollisionCircleRec(player.position, player.radius, buttomPipe.objet) == true)
 		{
 			scenes = credits;
 		}
@@ -72,10 +72,17 @@ namespace Flappy_Bird
 
 	void EarnPoint()
 	{
-		if (player.position.x > (pipes.objet.x + pipes.objet.width - 5) && player.position.x < (pipes.objet.x + pipes.objet.width))
+		if (player.position.x > (buttomPipe.objet.x + buttomPipe.objet.width - 3) &&
+			player.position.x < (buttomPipe.objet.x + buttomPipe.objet.width))
 		{
 			player.points++;
 		}
+	}
+
+	void DrawPlayer()
+	{
+		DrawCircle(static_cast<int>(player.position.x), static_cast<int>(player.position.y), player.radius, GREEN);
+		DrawUI();
 	}
 
 	void DrawUI()

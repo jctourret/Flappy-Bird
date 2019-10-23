@@ -19,10 +19,9 @@ namespace Flappy_Bird
 		BeginDrawing();
 		ClearBackground(BLACK);
 
-		DrawCircle(static_cast<int>(player.position.x), static_cast<int>(player.position.y), player.radius, GREEN);
-		DrawUI();
+		DrawPlayer();
 
-		DrawRectangleRec(pipes.objet, RED);
+		DrawEnemies();
 
 		if (pause == true)
 		{

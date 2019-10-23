@@ -26,6 +26,7 @@ namespace Flappy_Bird
 	void Input();
 	void LoseOrWin();
 	void EarnPoint();
+	void DrawPlayer();
 	void DrawUI();
 
 }

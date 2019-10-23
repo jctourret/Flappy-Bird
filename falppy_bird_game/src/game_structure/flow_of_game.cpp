@@ -30,7 +30,7 @@ namespace Flappy_Bird
 				Input();
 				if (pause == false)
 				{
-					MovementEnemi();
+					MovementEnemies();
 					EarnPoint();
 					LoseOrWin();
 				}

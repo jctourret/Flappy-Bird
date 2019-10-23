@@ -9,12 +9,13 @@ namespace Flappy_Bird
 		Rectangle objet;
 	};
 
-	extern PIPES pipes;
+	extern PIPES buttomPipe;
+	extern PIPES superiorPipe;
 	extern float SPEED_ENEMI;
 
 	void InitialiceEnemies();
-	void MovementEnemi();
-
+	void MovementEnemies();
+	void DrawEnemies();
 }
 
 #endif // !ENEMIES_H
