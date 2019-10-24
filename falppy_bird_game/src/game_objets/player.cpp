@@ -3,6 +3,7 @@
 #include "enemies.h"
 #include "game_structure/menu.h"
 #include "game_structure/game_screen.h"
+#include "game_structure/initialice.h"
 
 namespace Flappy_Bird
 {
@@ -35,6 +36,7 @@ namespace Flappy_Bird
 	{
 		if (IsKeyPressed(KEY_ESCAPE) == true)
 		{
+			ResetValues();
 			scenes = menu;
 		}
 
@@ -58,7 +60,10 @@ namespace Flappy_Bird
 
 	void LoseOrWin()
 	{
-		if (CheckCollisionCircleRec(player.position, player.radius, buttomPipe.objet) == true)
+		if (CheckCollisionCircleRec(player.position, player.radius, superiorPipe1.objet) == true ||
+			CheckCollisionCircleRec(player.position, player.radius, superiorPipe2.objet) == true ||
+			CheckCollisionCircleRec(player.position, player.radius, buttomPipe1.objet) == true ||
+			CheckCollisionCircleRec(player.position, player.radius, buttomPipe2.objet) == true)
 		{
 			scenes = credits;
 		}
@@ -72,8 +77,11 @@ namespace Flappy_Bird
 
 	void EarnPoint()
 	{
-		if (player.position.x > (buttomPipe.objet.x + buttomPipe.objet.width - 3) &&
-			player.position.x < (buttomPipe.objet.x + buttomPipe.objet.width))
+		if (player.position.x > (buttomPipe1.objet.x + buttomPipe1.objet.width - 3.5f) &&
+			player.position.x <= (buttomPipe1.objet.x + buttomPipe1.objet.width)
+			||
+			player.position.x > (buttomPipe2.objet.x + buttomPipe2.objet.width - 3.5f) &&
+			player.position.x <= (buttomPipe2.objet.x + buttomPipe2.objet.width))
 		{
 			player.points++;
 		}

@@ -9,8 +9,10 @@ namespace Flappy_Bird
 		Rectangle objet;
 	};
 
-	extern PIPES buttomPipe;
-	extern PIPES superiorPipe;
+	extern PIPES buttomPipe1;
+	extern PIPES buttomPipe2;
+	extern PIPES superiorPipe1;
+	extern PIPES superiorPipe2;
 	extern float SPEED_ENEMI;
 
 	void InitialiceEnemies();
