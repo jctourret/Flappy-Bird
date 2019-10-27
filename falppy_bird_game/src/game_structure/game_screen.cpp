@@ -18,10 +18,10 @@ namespace Flappy_Bird
 	{
 		BeginDrawing();
 		ClearBackground(BLACK);
+		
+		DrawEnemies();
 
 		DrawPlayer();
-
-		DrawEnemies();
 
 		if (pause == true)
 		{
