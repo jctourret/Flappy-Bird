@@ -3,10 +3,8 @@
 
 #include "raylib.h"
 
-namespace Flappy_Bird
-{
-	namespace Player_Things
-	{
+namespace Flappy_Bird{
+	namespace Player_Things{
 		enum WIN_OR_LOSE {
 			win, lose, inGame
 		};
@@ -19,6 +17,7 @@ namespace Flappy_Bird
 		};
 
 		extern PLAYER player;
+		extern PLAYER player2;
 		extern bool pause;
 
 		extern short fontUI;
