@@ -1,100 +1,105 @@
 #include "player.h"
 
 #include "enemies.h"
-#include "game_structure/menu.h"
+#include "game_structure/menu_screen.h"
 #include "game_structure/game_screen.h"
 #include "game_structure/initialice.h"
 
 namespace Flappy_Bird
 {
-	PLAYER player;
+	using namespace Enemies;
 
-	bool pause;
-
-	short fontUI = 20;
-	short pixelsAxis = 20;
-
-	static float SPEEDPJ = 300.0f;
-	static float SPEEDFALL = 150.0f;
-
-	static short heightRec = 10;
-	static short widthRec = 70;
-
-	void InitialicePlayer()
+	namespace Player_Things
 	{
-		player.winOrLose = inGame;
+		PLAYER player;
 
-		player.position = { static_cast <float>(GetScreenWidth() / 3), static_cast <float>(GetScreenHeight() / 2) };
-		player.radius = 15;
-		player.points = 0;
-		player.exitGame = false;
+		bool pause;
 
-		pause = false;
-	}
+		short fontUI = 20;
+		short pixelsAxis = 20;
 
-	void Input()
-	{
-		if (IsKeyPressed(KEY_ESCAPE) == true)
+		static float SPEEDPJ = 300.0f;
+		static float SPEEDFALL = 150.0f;
+
+		static short heightRec = 10;
+		static short widthRec = 70;
+
+		void InitialicePlayer()
 		{
-			ResetValues();
-			scenes = menu;
+			player.winOrLose = inGame;
+
+			player.position = { static_cast <float>(GetScreenWidth() / 3), static_cast <float>(GetScreenHeight() / 2) };
+			player.radius = 15;
+			player.points = 0;
+			player.exitGame = false;
+
+			pause = false;
 		}
 
-		if (IsKeyPressed(KEY_ENTER) == true)
+		void Input()
 		{
-			pause = !pause;
-		}
-
-		if (pause == false)
-		{
-			if (IsKeyPressed(KEY_SPACE) == true)
+			if (IsKeyPressed(KEY_ESCAPE) == true)
 			{
-				player.position.y -= SPEEDPJ * 10 * GetFrameTime();
+				ResetValues();
+				scenes = menu;
 			}
-			else
+
+			if (IsKeyPressed(KEY_ENTER) == true)
 			{
-				player.position.y += SPEEDFALL * GetFrameTime();
+				pause = !pause;
+			}
+
+			if (pause == false)
+			{
+				if (IsKeyPressed(KEY_SPACE) == true)
+				{
+					player.position.y -= SPEEDPJ * 10 * GetFrameTime();
+				}
+				else
+				{
+					player.position.y += SPEEDFALL * GetFrameTime();
+				}
 			}
 		}
-	}
 
-	void LoseOrWin()
-	{
-		if (CheckCollisionCircleRec(player.position, player.radius, superiorPipe1.objet) == true ||
-			CheckCollisionCircleRec(player.position, player.radius, superiorPipe2.objet) == true ||
-			CheckCollisionCircleRec(player.position, player.radius, buttomPipe1.objet) == true ||
-			CheckCollisionCircleRec(player.position, player.radius, buttomPipe2.objet) == true)
+		void LoseOrWin()
 		{
-			scenes = credits;
+			if (CheckCollisionCircleRec(player.position, player.radius, superiorPipe1.objet) == true ||
+				CheckCollisionCircleRec(player.position, player.radius, superiorPipe2.objet) == true ||
+				CheckCollisionCircleRec(player.position, player.radius, buttomPipe1.objet) == true ||
+				CheckCollisionCircleRec(player.position, player.radius, buttomPipe2.objet) == true)
+			{
+				scenes = endGame;
+			}
+
+			if ((player.position.y + player.radius >= GetScreenHeight()) ||
+				(player.position.y - player.radius <= 0))
+			{
+				scenes = endGame;
+			}
 		}
 
-		if ((player.position.y + player.radius >= GetScreenHeight()) ||
-			(player.position.y - player.radius <= 0))
+		void EarnPoint()
 		{
-			scenes = credits;
+			if (player.position.x > (buttomPipe1.objet.x + buttomPipe1.objet.width - 3.5f) &&
+				player.position.x <= (buttomPipe1.objet.x + buttomPipe1.objet.width)
+				||
+				player.position.x > (buttomPipe2.objet.x + buttomPipe2.objet.width - 3.5f) &&
+				player.position.x <= (buttomPipe2.objet.x + buttomPipe2.objet.width))
+			{
+				player.points++;
+			}
 		}
-	}
 
-	void EarnPoint()
-	{
-		if (player.position.x > (buttomPipe1.objet.x + buttomPipe1.objet.width - 3.5f) &&
-			player.position.x <= (buttomPipe1.objet.x + buttomPipe1.objet.width)
-			||
-			player.position.x > (buttomPipe2.objet.x + buttomPipe2.objet.width - 3.5f) &&
-			player.position.x <= (buttomPipe2.objet.x + buttomPipe2.objet.width))
+		void DrawPlayer()
 		{
-			player.points++;
+			DrawCircle(static_cast<int>(player.position.x), static_cast<int>(player.position.y), player.radius, GREEN);
+			DrawUI();
 		}
-	}
 
-	void DrawPlayer()
-	{
-		DrawCircle(static_cast<int>(player.position.x), static_cast<int>(player.position.y), player.radius, GREEN);
-		DrawUI();
-	}
-
-	void DrawUI()
-	{
-		DrawText(FormatText("Points ~ %i", player.points), pixelsAxis, screenHeight - pixelsAxis, fontUI, WHITE);
+		void DrawUI()
+		{
+			DrawText(FormatText("Points ~ %i", player.points), pixelsAxis, screenHeight - pixelsAxis, fontUI, WHITE);
+		}
 	}
 }

@@ -19,23 +19,29 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\assets_code\textures.cpp" />
     <ClCompile Include="..\src\game_objets\enemies.cpp" />
     <ClCompile Include="..\src\game_objets\player.cpp" />
-    <ClCompile Include="..\src\game_structure\credits.cpp" />
+    <ClCompile Include="..\src\game_structure\credits_screen.cpp" />
+    <ClCompile Include="..\src\game_structure\end_game_screen.cpp" />
     <ClCompile Include="..\src\game_structure\flow_of_game.cpp" />
     <ClCompile Include="..\src\game_structure\game_screen.cpp" />
     <ClCompile Include="..\src\game_structure\initialice.cpp" />
-    <ClCompile Include="..\src\game_structure\menu.cpp" />
+    <ClCompile Include="..\src\game_structure\menu_screen.cpp" />
+    <ClCompile Include="..\src\game_structure\options_screen.cpp" />
     <ClCompile Include="..\src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\src\assets_code\textures.h" />
     <ClInclude Include="..\src\game_objets\enemies.h" />
     <ClInclude Include="..\src\game_objets\player.h" />
-    <ClInclude Include="..\src\game_structure\credits.h" />
+    <ClInclude Include="..\src\game_structure\credits_screen.h" />
+    <ClInclude Include="..\src\game_structure\end_game_screen.h" />
     <ClInclude Include="..\src\game_structure\flow_of_game.h" />
     <ClInclude Include="..\src\game_structure\game_screen.h" />
     <ClInclude Include="..\src\game_structure\initialice.h" />
-    <ClInclude Include="..\src\game_structure\menu.h" />
+    <ClInclude Include="..\src\game_structure\menu_screen.h" />
+    <ClInclude Include="..\src\game_structure\options_screen.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

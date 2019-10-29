@@ -5,30 +5,32 @@
 
 namespace Flappy_Bird
 {
-	enum WIN_OR_LOSE {
-		win, lose, inGame
-	};
-	struct PLAYER {
-		Vector2 position;
-		float radius;
-		int points;
-		bool exitGame;
-		WIN_OR_LOSE winOrLose;
-	};
+	namespace Player_Things
+	{
+		enum WIN_OR_LOSE {
+			win, lose, inGame
+		};
+		struct PLAYER {
+			Vector2 position;
+			float radius;
+			int points;
+			bool exitGame;
+			WIN_OR_LOSE winOrLose;
+		};
 
-	extern PLAYER player;
-	extern bool pause;
+		extern PLAYER player;
+		extern bool pause;
 
-	extern short fontUI;
-	extern short pixelsAxis;
+		extern short fontUI;
+		extern short pixelsAxis;
 
-	void InitialicePlayer();
-	void Input();
-	void LoseOrWin();
-	void EarnPoint();
-	void DrawPlayer();
-	void DrawUI();
-
+		void InitialicePlayer();
+		void Input();
+		void LoseOrWin();
+		void EarnPoint();
+		void DrawPlayer();
+		void DrawUI();
+	}
 }
 
 #endif // PLAYER_H

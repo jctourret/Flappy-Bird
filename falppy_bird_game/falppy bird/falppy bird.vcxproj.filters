@@ -7,13 +7,13 @@
     <Filter Include="game_structure">
       <UniqueIdentifier>{f4409c4d-db59-419e-a85d-ff37d9afac63}</UniqueIdentifier>
     </Filter>
+    <Filter Include="assets_code">
+      <UniqueIdentifier>{3ef14680-4574-466f-9163-1e161388a567}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="..\src\game_structure\game_screen.cpp">
-      <Filter>game_structure</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\game_structure\menu.cpp">
       <Filter>game_structure</Filter>
     </ClCompile>
     <ClCompile Include="..\src\game_structure\initialice.cpp">
@@ -28,15 +28,24 @@
     <ClCompile Include="..\src\game_structure\flow_of_game.cpp">
       <Filter>game_structure</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\game_structure\credits.cpp">
+    <ClCompile Include="..\src\game_structure\credits_screen.cpp">
       <Filter>game_structure</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game_structure\menu_screen.cpp">
+      <Filter>game_structure</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game_structure\end_game_screen.cpp">
+      <Filter>game_structure</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game_structure\options_screen.cpp">
+      <Filter>game_structure</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\assets_code\textures.cpp">
+      <Filter>assets_code</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\game_structure\game_screen.h">
-      <Filter>game_structure</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\game_structure\menu.h">
       <Filter>game_structure</Filter>
     </ClInclude>
     <ClInclude Include="..\src\game_structure\initialice.h">
@@ -51,8 +60,20 @@
     <ClInclude Include="..\src\game_structure\flow_of_game.h">
       <Filter>game_structure</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\game_structure\credits.h">
+    <ClInclude Include="..\src\game_structure\credits_screen.h">
       <Filter>game_structure</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game_structure\menu_screen.h">
+      <Filter>game_structure</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game_structure\end_game_screen.h">
+      <Filter>game_structure</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game_structure\options_screen.h">
+      <Filter>game_structure</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\assets_code\textures.h">
+      <Filter>assets_code</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

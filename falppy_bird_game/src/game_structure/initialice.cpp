@@ -3,11 +3,11 @@
 #include "game_screen.h"
 #include "game_objets/player.h"
 #include "game_objets/enemies.h"
-#include "game_structure/menu.h"
+#include "game_structure/menu_screen.h"
+#include "assets_code/textures.h"
 
 namespace Flappy_Bird
 {
-
 	void InitialiceAll()
 	{
 		InitWindow(screenWidth, screenHeight, "Flappy Bird - Tomas Aquistapace");
@@ -15,8 +15,9 @@ namespace Flappy_Bird
 
 		SetExitKey(KEY_BACK);
 
-		InitialicePlayer();
-		InitialiceEnemies();
+		Player_Things::InitialicePlayer();
+		Textures::InitialiceTextures();
+		Enemies::InitialiceEnemies();
 		InitialiceMenu();
 
 		SetTargetFPS(60);
@@ -24,7 +25,7 @@ namespace Flappy_Bird
 
 	void ResetValues()
 	{
-		InitialicePlayer();
-		InitialiceEnemies();
+		Player_Things::InitialicePlayer();
+		Enemies::InitialiceEnemies();
 	}
 }

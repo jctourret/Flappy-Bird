@@ -2,12 +2,15 @@
 
 #include "raylib.h"
 
-#include "menu.h"
-#include "credits.h"
+#include "menu_screen.h"
+#include "credits_screen.h"
+#include "options_screen.h"
+#include "end_game_screen.h"
 #include "initialice.h"
 #include "game_screen.h"
 #include "game_objets/player.h"
 #include "game_objets/enemies.h"
+#include "assets_code/textures.h"
 
 namespace Flappy_Bird
 {
@@ -15,46 +18,55 @@ namespace Flappy_Bird
 	{
 		InitialiceAll();
 
-		while (!WindowShouldClose() && player.exitGame != true)
+		while (!WindowShouldClose() && Player_Things::player.exitGame != true)
 		{
 			switch (scenes)
 			{
 			case menu:
 
 				InputMenu();
+				Textures::MovementBackgrounds();
 				DrawMenu();
-
 				break;
 			case game:
 
-				Input();
-				if (pause == false)
+				Player_Things::Input();
+				if (Player_Things::pause == false)
 				{
-					MovementEnemies();
-					EarnPoint();
-					LoseOrWin();
+					Textures::MovementBackgrounds();
+					Enemies::MovementEnemies();
+					Player_Things::EarnPoint();
+					Player_Things::LoseOrWin();
 				}
 
 				DrawGame();
 
 				break;
+			case options:
+
+				Options::Input();
+				Options::DrawOptions();
+
+				break;
 			case credits:
 
-				InputCredits();
-				DrawCredits();
+				Credits::Input();
+				Credits::DrawCredits();
 
+				break;
+			case endGame:
+
+				End_game::Input();
+				End_game::DrawEndGame();
+				
 				break;
 			case exit:
 				
-				player.exitGame = true;
+				Player_Things::player.exitGame = true;
 
 				break;
 			}
 		}
-
-
-
+		Textures::UnloadTextures();
 	}
-
-
 }

@@ -4,6 +4,7 @@
 
 #include "game_objets/player.h"
 #include "game_objets/enemies.h"
+#include "assets_code/textures.h"
 
 namespace Flappy_Bird
 {
@@ -19,11 +20,13 @@ namespace Flappy_Bird
 		BeginDrawing();
 		ClearBackground(BLACK);
 		
-		DrawEnemies();
+		Textures::DrawBackground();
 
-		DrawPlayer();
+		Enemies::DrawEnemies();
 
-		if (pause == true)
+		Player_Things::DrawPlayer();
+
+		if (Player_Things::pause == true)
 		{
 			DrawText("PAUSE", GetScreenWidth() / 2 - fontSubTittle, GetScreenHeight() / 2, fontSubTittle, WHITE);
 		}

@@ -7,7 +7,6 @@ namespace Flappy_Bird
 	extern int screenHeight;
 
 	void DrawGame();
-
 }
 
 #endif // !GAME_SCREEN_H
