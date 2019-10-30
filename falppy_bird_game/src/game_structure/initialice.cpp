@@ -16,6 +16,7 @@ namespace Flappy_Bird
 		SetExitKey(KEY_BACK);
 
 		Player_Things::InitialicePlayer();
+		Player_Things::InitialicePlayers();
 		Textures::InitialiceTextures();
 		Enemies::InitialiceEnemies();
 		InitialiceMenu();

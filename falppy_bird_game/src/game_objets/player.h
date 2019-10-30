@@ -24,10 +24,14 @@ namespace Flappy_Bird{
 		extern short pixelsAxis;
 
 		void InitialicePlayer();
+		void InitialicePlayers();
 		void Input();
+		void InputFor2();
 		void LoseOrWin();
+		void LoseOrWinFor2();
 		void EarnPoint();
 		void DrawPlayer();
+		void DrawPlayers();
 		void DrawUI();
 	}
 }

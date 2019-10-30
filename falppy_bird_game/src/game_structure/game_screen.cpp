@@ -2,6 +2,7 @@
 
 #include "raylib.h"
 
+#include "game_structure/menu_screen.h"
 #include "game_objets/player.h"
 #include "game_objets/enemies.h"
 #include "assets_code/textures.h"
@@ -15,17 +16,19 @@ namespace Flappy_Bird
 	static short fontSubTittle = 30;
 	static short font = 20;
 
-	void DrawGame()
-	{
+	void DrawGame(){
 		BeginDrawing();
 		ClearBackground(BLACK);
 		
 		Textures::DrawBackground();
 
 		Enemies::DrawEnemies();
-
-		Player_Things::DrawPlayer();
-
+		if (versusOn) {
+			Player_Things::DrawPlayer();
+		}
+		if (!versusOn) {
+			Player_Things::DrawPlayers();
+		}
 		if (Player_Things::pause == true)
 		{
 			DrawText("PAUSE", GetScreenWidth() / 2 - fontSubTittle, GetScreenHeight() / 2, fontSubTittle, WHITE);

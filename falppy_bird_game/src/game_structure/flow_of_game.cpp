@@ -25,7 +25,12 @@ namespace Flappy_Bird{
 				break;
 			case game:
 				if (versusOn) {
-
+					Player_Things::InputFor2();
+					if (Player_Things::pause == false) {
+						Textures::MovementBackgrounds();
+						Enemies::MovementEnemies();
+						Player_Things::LoseOrWinFor2();
+					}
 				}
 				if(!versusOn){
 				Player_Things::Input();
